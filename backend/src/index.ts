@@ -14,6 +14,12 @@ app.use(cors());
 // Parse JSON bodies (for POST requests)
 app.use(express.json());
 
+// Import auth routes
+import authRoutes from './routes/auth.routes';
+
+// Use auth routes under /api/auth
+app.use('/api/auth', authRoutes);
+
 // Root route - for testing
 app.get('/', (req, res) => {
   res.json({ 
